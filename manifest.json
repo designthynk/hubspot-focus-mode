@@ -1,0 +1,34 @@
+{
+    "manifest_version": 3,
+    "name": "HubSpot Focus Mode",
+    "version": "1.0",
+    "description": "Hides unavailable features in HubSpot to improve user experience",
+    "permissions": [
+      "activeTab",
+      "storage"
+    ],
+    "host_permissions": [
+      "https://*.hubspot.com/*",
+      "https://*.hubspotqa.com/*"
+    ],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+      }
+    },
+    "content_scripts": [
+      {
+        "matches": [
+          "https://*.hubspot.com/*",
+          "https://*.hubspotqa.com/*"
+        ],
+        "js": [
+          "content.js"
+        ],
+        "run_at": "document_idle"
+      }
+    ]
+  }
